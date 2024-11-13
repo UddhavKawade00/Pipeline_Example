@@ -1,23 +1,16 @@
 pipeline {
     agent any
     stages {
-        stage('Compile') {
+        stage("Compile") {
             steps {
                 sh 'javac Test.java'
             }
         }
-        stage('Run') {
+        stage("Run") {
             steps {
-                sh 'java Test'
+                sh "java Test"
             }
         }
     }
-    post {
-        success {
-            echo 'Pipeline executed successfully.'
-        }
-        failure {
-            echo 'Pipeline execution failed.'
-        }
-    }
+    
 }
